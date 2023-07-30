@@ -13,6 +13,8 @@ yield_list = list()
 for _ in range(N):
     yield_list.append(random.randint(50, 70))
 print(yield_list)
+
+#1 вариант
 yield_list.insert(0, yield_list[len(yield_list) - 1])
 yield_list.insert(len(yield_list), yield_list[1])
 print(yield_list)
@@ -22,4 +24,10 @@ for i in range(N):
     if max_yield < berries_sum:
         max_yield = berries_sum
 print(max_yield)
-
+#2 вариант
+max_yield = 0
+for i in range(N):
+    berries_sum = yield_list[i] + yield_list[(i + 1) % N] + yield_list[(i + 2)% N]
+    if max_yield < berries_sum:
+        max_yield = berries_sum
+print(max_yield)
